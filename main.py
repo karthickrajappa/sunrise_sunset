@@ -3,8 +3,8 @@ from datetime import datetime
 import smtplib
 import time
 
-MY_LAT = 19.032801
-MY_LONG = 72.896355
+MY_LAT = "YOUR LATITUDE"
+MY_LONG = "YOUR LONGITUDE"
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
@@ -53,13 +53,13 @@ while True:
         if is_dark():
             with smtplib.SMTP("smtp.gmail.com") as connection:
                 connection.starttls()
-                connection.login(user="lucifercodetesting@gmail.com", password="qwerty.210820")
+                connection.login(user="example@xyz.com", password="password")
                 connection.sendmail(
-                    from_addr="lucifercodetesting@gmail.com",
-                    to_addrs="lucifercodetesting@yahoo.com",
+                    from_addr="example@xyz.com",
+                    to_addrs="to_mail_id",
                     msg="subject: Look up \n\n Look up in the sky the ISS is flying over your head...!"
                 )
-            print("suck")
+            print("***")
 # and it is currently dark
 # Then send me an email to tell me to look up.
 # BONUS: run the code every 60 seconds.
